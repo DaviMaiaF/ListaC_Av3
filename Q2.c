@@ -22,11 +22,10 @@ int main() {
     printf("Digite a taxa de juros mensal (em decimal): ");
     scanf("%lf", &taxaJuros);
 
-
     // Cálculo e exibição do montante ao fim de cada mês
     for (int mes = 1; mes <= tempo; mes++) {
         double montante = calcularMontanteMensal(aporte, taxaJuros, mes);
-        printf("Montante ao fim do mes%3d: R$ %.2f\n", mes, montante);
+        printf("Montante ao fim do mes %1d: R$ %.2f\n", mes, montante);
     }
 
     return 0;
