@@ -13,13 +13,8 @@ int main() {
     int tempo;
 
     // Entrada de dados
-    printf("Digite o tempo em meses: ");
     scanf("%d", &tempo);
-    
-    printf("Digite o valor do aporte mensal: ");
     scanf("%lf", &aporte);
-
-    printf("Digite a taxa de juros mensal (em decimal): ");
     scanf("%lf", &taxaJuros);
 
     // Cálculo e exibição do montante ao fim de cada mês
