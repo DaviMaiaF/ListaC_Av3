@@ -58,9 +58,6 @@ int main() {
     char placa[20];
     char diaSemana[20];
 
-    printf("Digite o dia da semana: ");
-    scanf("%19s", diaSemana);  // Limita a leitura a 19 caracteres para evitar estouro de buffer
-
     printf("Digite a placa do carro: ");
     scanf("%19s", placa);  // Limita a leitura a 19 caracteres para evitar estouro de buffer
 
@@ -69,6 +66,9 @@ int main() {
         printf("Placa inválida.\n");
         return 1; // Encerra o programa indicando erro
     }
+
+    printf("Digite o dia da semana: ");
+    scanf(" %19[^\n]", diaSemana);  // Permite a entrada de espaços na string
 
     int autorizado = verificarAutorizacao(placa, diaSemana);
 
@@ -84,12 +84,4 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
 
