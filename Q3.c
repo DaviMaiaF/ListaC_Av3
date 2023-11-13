@@ -7,6 +7,17 @@ int isNumber(char c) {
     return (c >= '0' && c <= '9');
 }
 
+// Função para verificar se a placa está no formato desejado
+int isValidPlaca(char placa[]) {
+    int tam = strlen(placa);
+
+    // Verifica se o comprimento da placa é 8 e se os caracteres nos locais específicos são válidos
+    return (tam == 8 &&
+            isalpha(placa[0]) && isalpha(placa[1]) && placa[2] == '-' &&
+            isNumber(placa[3]) && isNumber(placa[4]) && isNumber(placa[5]) &&
+            isalpha(placa[6]) && isalpha(placa[7]));
+}
+
 // Função para verificar a autorização com base no último dígito da placa e no dia da semana
 int verificarAutorizacao(char placa[], char diaSemana[]) {
     int tam = strlen(placa);
@@ -49,6 +60,12 @@ int main() {
 
     printf("Digite a placa do carro: ");
     scanf("%19s", placa);  // Limita a leitura a 19 caracteres para evitar estouro de buffer
+
+    // Verifica se a placa é válida antes de prosseguir
+    if (!isValidPlaca(placa)) {
+        printf("Placa inválida.\n");
+        return 1; // Encerra o programa indicando erro
+    }
 
     printf("Digite o dia da semana: ");
     scanf("%19s", diaSemana);  // Limita a leitura a 19 caracteres para evitar estouro de buffer
