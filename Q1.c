@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Função para obter o valor de um caractere romano
+// FunÃ§Ã£o para obter o valor de um caractere romano
 int valor(char c) {
     if (c == 'I')
         return 1;
@@ -20,7 +20,7 @@ int valor(char c) {
     return -1;
 }
 
-// Função para converter o número romano para inteiro
+// FunÃ§Ã£o para converter o nÃºmero romano para inteiro
 int numeroRomanoParaInteiro(char *s) {
     int res = 0;
 
@@ -44,7 +44,7 @@ int numeroRomanoParaInteiro(char *s) {
     return res;
 }
 
-// Função para converter número decimal para binário
+// FunÃ§Ã£o para converter nÃºmero decimal para binÃ¡rio
 void decimalParaBinario(int decimal) {
     int binario[1000];
     int i = 0;
@@ -62,7 +62,7 @@ void decimalParaBinario(int decimal) {
 }
 
 void decimalParaHexadecimal(int decimal) {
-    char hexadecimalNum[12];
+    char hexadecimalNum[20];
     int index = 0;
 
     while (decimal > 0) {
@@ -86,7 +86,7 @@ void decimalParaHexadecimal(int decimal) {
 }
 
 int main() {
-    char numeroRomano[12];
+    char numeroRomano[20];
     scanf("%s", numeroRomano);
     int resultado = numeroRomanoParaInteiro(numeroRomano);
     printf("%s na base 2: ", numeroRomano);
@@ -97,4 +97,3 @@ int main() {
 
     return 0;
 }
-
