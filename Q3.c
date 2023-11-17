@@ -14,19 +14,12 @@ int verificarAutorizacao(char placa[], char diaSemana[]) {
     char ultimoDigito = placa[tam - 1];
     int digito = ultimoDigito - '0';
 
-    // Converte o nome do dia da semana para minúsculas para comparação sem distinção entre maiúsculas e minúsculas
-    char diaSemanaLower[20];
-    for (int i = 0; diaSemana[i] && i < sizeof(diaSemanaLower) - 1; i++) {
-        diaSemanaLower[i] = tolower(diaSemana[i]);
-        diaSemanaLower[i + 1] = '\0';  // Garante que a string seja terminada corretamente
-    }
-
     // Verificar se o carro pode circular com base no último dígito e no dia da semana
-    if ((strcmp(diaSemanaLower, "SEGUNDA-FEIRA") == 0 && (digito == 0 || digito == 1)) ||
-        (strcmp(diaSemanaLower, "TERCA-FEIRA") == 0 && (digito == 2 || digito == 3)) ||
-        (strcmp(diaSemanaLower, "QUARTA-FEIRA") == 0 && (digito == 4 || digito == 5)) ||
-        (strcmp(diaSemanaLower, "QUINTA-FEIRA") == 0 && (digito == 6 || digito == 7)) ||
-        (strcmp(diaSemanaLower, "SEXTA-FEIRA") == 0 && (digito == 8 || digito == 9))) {
+    if ((strcmp(diaSemana, "SEGUNDA-FEIRA") == 0 && (digito == 0 || digito == 1)) ||
+        (strcmp(diaSemana, "TERCA-FEIRA") == 0 && (digito == 2 || digito == 3)) ||
+        (strcmp(diaSemana, "QUARTA-FEIRA") == 0 && (digito == 4 || digito == 5)) ||
+        (strcmp(diaSemana, "QUINTA-FEIRA") == 0 && (digito == 6 || digito == 7)) ||
+        (strcmp(diaSemana, "SEXTA-FEIRA") == 0 && (digito == 8 || digito == 9))) {
         return 0; // Não autorizado
     } else {
         return 1; // Autorizado para outros casos
@@ -56,7 +49,7 @@ int main() {
         return 0;
     }
     
-     // Verifica se o nome do dia da semana é válido
+    // Verifica se o nome do dia da semana é válido
     if (strcmp(diaSemana, "SEGUNDA-FEIRA") != 0 &&
         strcmp(diaSemana, "TERCA-FEIRA") != 0 &&
         strcmp(diaSemana, "QUARTA-FEIRA") != 0 &&
@@ -70,7 +63,7 @@ int main() {
 
     int autorizado = verificarAutorizacao(placa, diaSemana);
 
-     if (strcmp(diaSemana, "SABADO") == 0 || strcmp(diaSemana, "DOMINGO") == 0) {
+    if (strcmp(diaSemana, "SABADO") == 0 || strcmp(diaSemana, "DOMINGO") == 0) {
         printf("%s Nao ha proibicao no fim de semana\n", placa, diaSemana);
     } else if (autorizado) {
         printf("%s pode circular %s\n", placa, diaSemana);
@@ -80,3 +73,4 @@ int main() {
     
     return 0;
 }
+
